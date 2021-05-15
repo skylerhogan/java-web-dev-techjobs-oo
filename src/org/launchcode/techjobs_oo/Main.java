@@ -3,12 +3,7 @@ package org.launchcode.techjobs_oo;
 public class Main {
 
     public static void main(String[] args) {
-        Employer launchCode = new Employer("LaunchCode");
-        Employer homeDepot = new Employer("Home Depot");
-        System.out.println(launchCode.getId());
-        System.out.println(homeDepot.getId());
-        Job dev = new Job("Developer", new Employer("World Wide Technology"), new Location("St. Louis"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
-        System.out.println(dev);
+
     }
 
 //    public static void main(String[] args) {
