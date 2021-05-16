@@ -115,10 +115,10 @@ public class Job {
         if(location.toString().equals("")) location.setValue(defaultMessage);
         if(positionType.toString().equals("")) positionType.setValue(defaultMessage);
         if(coreCompetency.toString().equals("")) coreCompetency.setValue(defaultMessage);
-        return  String.format("\nID: " + id + "\nName: "
+        return "\nID: " + id + "\nName: "
                 + name + "\nEmployer: " + employer
                 + "\nLocation: " + location + "\nPosition Type: "
                 + positionType + "\nCore Competency: "
-                + coreCompetency);
+                + coreCompetency;
     }
 }
