@@ -29,7 +29,18 @@ public class JobTest {
     public void testJobsForEquality() {
         Job test1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         Job test2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertNotSame(test1, test2);
         assertFalse(test1 == test2);
+    }
+
+    @Test
+    public void testToStringDisplaysFieldsCorrectly() {
+        Job test1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job test2 = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job test3 = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+        assertTrue(test1.toString().equals("\nID: " + test1.getId() + "\nName: " + test1.getName() + "\nEmployer: " + test1.getEmployer() + "\nLocation: " + test1.getLocation() + "\nPosition Type: " + test1.getPositionType() + "\nCore Competency: " + test1.getCoreCompetency()));
+        assertTrue(test2.toString().equals("\nID: " + test2.getId() + "\nName: " + test2.getName() + "\nEmployer: " + "Data not available" + "\nLocation: " + test2.getLocation() + "\nPosition Type: " + test2.getPositionType() + "\nCore Competency: " + test2.getCoreCompetency()));
+        assertTrue(test3.toString().equals("\nOOPS! This job does not seem to exist."));
     }
 
 }

@@ -3,7 +3,8 @@ package org.launchcode.techjobs_oo;
 import java.util.Objects;
 
 public class Job {
-
+    private static final String defaultMessage = "Data not available";
+    private static final String oopsMessage = "OOPS! This job does not seem to exist.";
     private int id;
     private static int nextId = 1;
 
@@ -96,12 +97,28 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
+    public static String getDefaultMessage() {
+        return defaultMessage;
+    }
+
+    public static String getOopsMessage() {
+        return oopsMessage;
+    }
+
     @Override
     public String toString() {
-        return  "Role - " + name +
-                " Employer - " + employer +
-                " Location - " + location +
-                " Position Type - " + positionType +
-                " Core Competency - " + coreCompetency;
+        if(name.equals("") && employer.toString().equals("") && location.toString().equals("")
+                && positionType.toString().equals("") && coreCompetency.toString().equals(""))
+            return "\nOOPS! This job does not seem to exist.";
+        if(name.equals("")) setName(defaultMessage);
+        if(employer.toString().equals("")) employer.setValue(defaultMessage);
+        if(location.toString().equals("")) location.setValue(defaultMessage);
+        if(positionType.toString().equals("")) positionType.setValue(defaultMessage);
+        if(coreCompetency.toString().equals("")) coreCompetency.setValue(defaultMessage);
+        return  String.format("\nID: " + id + "\nName: "
+                + name + "\nEmployer: " + employer
+                + "\nLocation: " + location + "\nPosition Type: "
+                + positionType + "\nCore Competency: "
+                + coreCompetency);
     }
 }
