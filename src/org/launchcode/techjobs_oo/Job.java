@@ -81,30 +81,6 @@ public class Job {
         this.name = name;
     }
 
-    public void setEmployer(Employer employer) {
-        this.employer = employer;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public void setPositionType(PositionType positionType) {
-        this.positionType = positionType;
-    }
-
-    public void setCoreCompetency(CoreCompetency coreCompetency) {
-        this.coreCompetency = coreCompetency;
-    }
-
-    public static String getDefaultMessage() {
-        return defaultMessage;
-    }
-
-    public static String getOopsMessage() {
-        return oopsMessage;
-    }
-
     @Override
     public String toString() {
         if(name.equals("") && employer.toString().equals("") && location.toString().equals("")
